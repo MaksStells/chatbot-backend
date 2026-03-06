@@ -5,7 +5,8 @@ export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   if (req.method === "OPTIONS") {
-    return res.status(200).end();
+    res.status(200).end();
+    return;
   }
 
   if (req.method !== "POST") {
@@ -44,15 +45,16 @@ Give clear, accurate, supportive answers.
 
     const data = await response.json();
 
-    return res.status(200).json({
+    res.status(200).json({
       reply: data.choices[0].message.content
     });
 
   } catch (error) {
 
-    return res.status(500).json({
-      error: "Server error",
-      details: error.message
+    console.error(error);
+
+    res.status(500).json({
+      error: "Server error"
     });
 
   }
