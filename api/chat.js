@@ -12,20 +12,22 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { message } = JSON.parse(req.body);
+  try {
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${process.env.API_KEY}`
-    },
-    body: JSON.stringify({
-      model: "gpt-4o-mini",
-      messages: [
-        {
-          role: "system",
-          content: `
+    const { message } = req.body;
+
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content: `
 You are a university student support assistant.
 Help with:
 - coursework deadlines
@@ -34,15 +36,24 @@ Help with:
 - course registration
 Give clear, accurate, supportive answers.
 `
-        },
-        { role: "user", content: message }
-      ]
-    })
-  });
+          },
+          { role: "user", content: message }
+        ]
+      })
+    });
 
-  const data = await response.json();
+    const data = await response.json();
 
-  return res.status(200).json({
-    reply: data.choices[0].message.content
-  });
+    return res.status(200).json({
+      reply: data.choices[0].message.content
+    });
+
+  } catch (error) {
+
+    return res.status(500).json({
+      error: "Server error",
+      details: error.message
+    });
+
+  }
 }
