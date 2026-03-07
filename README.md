@@ -11,3 +11,6 @@ Then make a new API key, and copy that key in the space in the .env file.
 
 Then in the terminal, type "node server.js" and it should say 'UniBot server running at http://localhost:3000'
 Open that in your browser and it might work.
+
+The calender works but we should probably redo it, as it i just got AI to make it as an idea. 
+It does somewhat work with the chatbot though
