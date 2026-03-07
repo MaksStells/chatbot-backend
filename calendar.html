@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniBot — Calendar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="calendar.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">U</div>
+        <span class="brand-name">UniBot</span>
+      </div>
+
+      <nav class="topics">
+        <p class="topics-label">Navigation</p>
+        <a href="index.html" class="topic-btn">💬 Chatbot</a>
+        <a href="calendar.html" class="topic-btn active">📅 Calendar</a>
+      </nav>
+
+      <div id="upcoming-panel" class="upcoming-panel">
+        <p class="topics-label">Upcoming Deadlines</p>
+        <div id="upcoming-list"><p class="no-events">No upcoming events</p></div>
+      </div>
+
+      <div class="sidebar-footer">
+        <p>Need urgent help?</p>
+        <a href="#">Contact Student Services →</a>
+      </div>
+    </aside>
+
+    <main class="calendar-main">
+      <div class="calendar-header">
+        <button id="prevMonth">&#8592;</button>
+        <h2 id="monthTitle"></h2>
+        <button id="nextMonth">&#8594;</button>
+      </div>
+
+      <div class="calendar-grid">
+        <div class="day-label">Mon</div>
+        <div class="day-label">Tue</div>
+        <div class="day-label">Wed</div>
+        <div class="day-label">Thu</div>
+        <div class="day-label">Fri</div>
+        <div class="day-label">Sat</div>
+        <div class="day-label">Sun</div>
+        <div id="calendarDays" class="days-container"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Event Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <h3 id="modal-date-title"></h3>
+      <div id="modal-events-list"></div>
+      <div class="modal-input-group">
+        <input type="text" id="eventTitle" placeholder="Event or deadline title..." />
+        <select id="eventType">
+          <option value="deadline">📋 Deadline</option>
+          <option value="lecture">🎓 Lecture</option>
+          <option value="exam">📝 Exam</option>
+          <option value="other">📌 Other</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button id="addEventBtn">Add Event</button>
+        <button id="closeModal" class="secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="calendar.js"></script>
+</body>
+</html>

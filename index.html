@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniBot — Student Support</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">U</div>
+        <span class="brand-name">UniBot</span>
+      </div>
+
+      <nav class="topics">
+        <p class="topics-label">Navigation</p>
+        <a href="index.html" class="topic-btn active">💬 Chatbot</a>
+        <a href="calendar.html" class="topic-btn">📅 Calendar</a>
+      </nav>
+
+      <nav class="topics">
+        <p class="topics-label">Quick Topics</p>
+        <button class="topic-btn" data-msg="What are my upcoming deadlines?">📅 My Deadlines</button>
+        <button class="topic-btn" data-msg="Can you explain the academic misconduct policy?">📋 Policies</button>
+        <button class="topic-btn" data-msg="What wellbeing and mental health services are available?">💚 Wellbeing</button>
+        <button class="topic-btn" data-msg="How do I register for modules or change my course?">🎓 Registration</button>
+        <button class="topic-btn" data-msg="What campus facilities are available to students?">🏛️ Campus</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Need urgent help?</p>
+        <a href="#">Contact Student Services →</a>
+      </div>
+    </aside>
+
+    <main class="chat-area">
+      <header class="chat-header">
+        <div class="status-dot"></div>
+        <span>UniBot is online</span>
+      </header>
+
+      <div class="messages" id="messages">
+        <div class="message bot">
+          <div class="avatar">U</div>
+          <div class="bubble">
+            👋 Hi! I'm UniBot, your student support assistant. Ask me anything about deadlines, policies, wellbeing, or course registration.
+          </div>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <textarea
+          id="userInput"
+          placeholder="Type your question..."
+          rows="1"
+        ></textarea>
+        <button id="sendBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
